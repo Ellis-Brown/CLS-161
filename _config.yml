@@ -22,11 +22,11 @@ title: Intro to DH Portfolio
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
 
-baseurl: "/intro-dh-portfolio-template" # CHANGE THIS! the subpath of your site, e.g. /blog
-url: "https://msaxton.github.io/" # CHANGE THIS the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/CLS-161" # CHANGE THIS! the subpath of your site, e.g. /blog
+url: "https://ellis-brown.github.io/" # CHANGE THIS the base hostname & protocol for your site, e.g. http://example.com
 permalink: /:categories/:year/:month/:day/:title:output_ext
 twitter_username: 
-github_username:  
+github_username:  Ellis-Brown
 
 # Build settings
 theme: minima
