@@ -2,7 +2,7 @@
 layout: post
 title:  "example post"
 date:   2022-09-31 18:21:49 -0400
-categories: jekyll update
+categories: reading response
 ---
 # Hello world!
 Hi friends!
