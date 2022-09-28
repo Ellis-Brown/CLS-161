@@ -28,7 +28,8 @@ print(ellis.is_programmer() == True)
 ```
 
     Is ellis a programmer? I think so!
-    Ellis is a programmer: True
+    Am I a programmer?
+    True
 
 
 
