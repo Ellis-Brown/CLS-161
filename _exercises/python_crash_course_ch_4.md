@@ -5,7 +5,6 @@ description: Select exercises from Python Crash Course (Chapter 4)
 ---
 
 
-
 # Python Crash Course Chapter 4
 
 ## 4-1. Pizzas
