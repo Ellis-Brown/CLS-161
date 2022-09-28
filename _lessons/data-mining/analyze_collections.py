@@ -130,7 +130,7 @@ def download_results():
                 did_download = True
 
         except Exception as e:
-            ERROR_LOG.write("Error downloading " + id + ": " + str(e) + "")
+            ERROR_LOG.write("Error downloading " + id + ": " + str(e) + "\n")
         
         # We do not want to overload the Internet Archive with requests
         # Therefore, add a small timeout delay between downloads
@@ -222,7 +222,6 @@ def main():
     
     # Download the results to a local folder
     download_results()
-    
     
     # Open the files we downloaded, and parse them
     print(" ** Gathering location data from downloaded files **")
