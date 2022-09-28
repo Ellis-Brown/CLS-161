@@ -1,3 +1,10 @@
+---
+layout: page
+title: Exercises Chapter 2
+description: Select exercises from Python Crash Course
+---
+
+
 # Weekly Python: Week 1
 
 ## 2.1 Simple message: Store a message in a variable, then print the message
