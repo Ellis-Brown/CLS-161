@@ -37,6 +37,9 @@
     delete the files until you are finished with analysis.
 
 
+> Last modified
+    9/28/2022
+
 > Author
     Ellis Brown
 
@@ -46,9 +49,12 @@
     capture publication data.
     https://programminghistorian.org/en/lessons/data-mining-the-internet-archive
 
-> Last modified
-    9/28/2022
-
+> Notes
+    The time it took for this to run on my local computer (M1 Macbook Pro)
+    on a network with about 200 Mbps was about X time. This also required me
+    to have Y storage available, so be careful before running this locally.
+    To account for this, I have added a MAX DOCUMENTS to parse flag, which
+    can be turned from -1 (indiciates ALL) to some sample, such as 50
 '''
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -70,26 +76,41 @@ import re as regex # Used to clean characters
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 DOWNLOAD_FOLDER = "./downloads/"
-locations = [] 
-COLLECTION = 'bplscas'
-ERROR_LOG = open("error_log.txt", "a")
+locations       = [] 
+ALL             = -1           # -1 indicates all documents.
+DOWNLOAD_PAUSE  = 0.5          # time in seconds so we do not spam the server
+COLLECTION      = 'bplscas'
+ERROR_LOG       = open("error_log.txt", "a")
+MAX_DOCUMENTS   = ALL           #  n | ALL , where n is a positive integer
+                      
+
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #
 #                           download_results
+#
 #          Searches the internet archive for a specified COLLECTION.
 #           Downloads the _marc.xml file associated with each result
-#                       in that collection
+#                          in that collection
+#
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 def download_results():
-   
-    
-    print(" ** Beginning downloads **")
+    print(" ** Searching archive **")
+    time_start_search = time.time()
     search = ia.search_items('collection:' + COLLECTION) 
     current_files = set(os.listdir(DOWNLOAD_FOLDER))
-    
+    count = 0
+    print("** Search complete. Time elapsed: "
+          + str(time.time() - time_start_search) + "s **")
+    print(" ** Beginning downloads **")
+    time_start_downloads = time.time()
     for result in search:
+        # process a portion of the search, rather than all documents
+        if MAX_DOCUMENTS != ALL and count > MAX_DOCUMENTS:
+            print(" ** Download of " + str(count) + " items complete. Time elapsed: " 
+                   + str(time.time() - time_start_downloads) + "s **")
+            return
         did_download = False
         try:
             id = result['identifier']
@@ -100,7 +121,7 @@ def download_results():
             if filename not in current_files:
                 current_files.add(filename)
                 marc_xml = item.get_file(filename)
-                print("Downloading " + filename + " . . . ", end="")
+                print("Downloading " + filename + " . . . ")
                 
                 marc_xml.download(destdir=DOWNLOAD_FOLDER)
                 print("Done!")
@@ -114,15 +135,20 @@ def download_results():
         # We do not want to overload the Internet Archive with requests
         # Therefore, add a small timeout delay between downloads
         if not did_download:
-            time.sleep(0.25)
+            time.sleep(DOWNLOAD_PAUSE)
 
-    print(" ** Download of " + len(search) + " items complete **")
+        count += 1
+
+    print(" ** Download of " + str(count) + " items complete. Time elapsed: " 
+          + str(time.time() - time_start_downloads) + "s **")
+
 
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #
-#                               clean_data
+#                              get_place_of_pub
+#
 #           Determine the place of publication for specified record
 #          If the publication location cannot be found, skip the record
 #
@@ -133,7 +159,6 @@ def get_place_of_pub(record):
             if 'a' in record['260']:
                 locations.append(record['260']['a'])
                 return
-    ERROR_LOG.write("Skipped record as pub location not found")
     
 
 
@@ -141,12 +166,13 @@ def get_place_of_pub(record):
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #
 #                               clean_data
+#
 #           Takes as parameter a list of location names, and cleans
 #                 the data for processing by the word cloud
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 def clean_data(locations):
-    print(" ** Cleaning data for " + len(locations) + " locations **")
+    print(" ** Cleaning data for " + str(len(locations)) + " locations **")
     only_chars = regex.compile('[^a-z A-Z]')
     remove_spaces = regex.compile(' ')
     # An important decision needs to be made here.
@@ -167,9 +193,10 @@ def clean_data(locations):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #
-#                            generate_wordcloud
-#           Takes in a list of words, speperated by spaces
-#                        and generates a word cloud
+#                           generate_wordcloud
+#
+#             Takes in a list of words, speperated by spaces
+#                      and generates a word cloud
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 def generate_wordcloud(text):
@@ -211,7 +238,7 @@ def main():
 
 
 
-# Run the code
+# Run the code 
 if __name__ == "__main__":
     main()
 
