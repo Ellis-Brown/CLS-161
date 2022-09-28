@@ -155,13 +155,16 @@ for topping in friend_pizza:
     print(f"\t{topping}")
 ```
 
-
-
-
-    ['pineapple', 'ham', 'pepper']
-
-
-
+My pizza contains:
+	pineapple
+	ham
+	pepper
+	ice cream
+My friend's pizza contains:
+	pineapple
+	ham
+	pepper
+	chocolate
 
 ```python
 
