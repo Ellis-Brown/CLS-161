@@ -26,6 +26,9 @@ During this lesson, I had to work with a few libraries I was unfamiliar with. I 
 `internetarchive`, `wordcloud`, and `pymarc` for the first time. The most interesting was internetarchive, which introduced the idea of searching an online archive for information, and allowed the script to locate the URL names of files, which could then be downloaded directly using the library or another tool. Also involved was a recommended timeout about slowing down requests to the web server. I am surprised that this timeout is implemented at the application layer of the program, rather than as part of the networking protocol, but I understand that a failure in the networking protocol from packet congestion would lead to a failure at the application level, so I guess it makes sense. I was curious about experimenting with the times for the timeout (0.001s vs 0.05s vs 0.5s vs 1s [recommend]),
 but I did not get the chance to do this, because I introduced a caching system to prevent redownloads. Also, download is slow and depends on the network and the computer doing so, which impose multiple limitations at different points in time. However, these limitations are technical, but the main problems occur from the way in which this data collection is done.
 
+---
+
+ The code can be found below
 ```python
 '''
 > Overview
