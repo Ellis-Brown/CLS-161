@@ -16,7 +16,7 @@ Readings:
 
 While reading through these chapters, there was a lot of discussion on what the humanities are, what the _digital_ humantities are, and why one would take the time to research them. However, with all of the discussion about the humanities, one particular idea stood out to me which is the question about how the digital humanities shape humanities research. 
 
-    "...Do these changes reconstitue the way scholars work or are they merely helping scholars do what they would normally do, but more quickly and efficiently?" (Page 5, Introduction to Digital Humanities.) 
+> "...Do these changes reconstitue the way scholars work or are they merely helping scholars do what they would normally do, but more quickly and efficiently?" (Page 5, Introduction to Digital Humanities.) 
 
 One example of a digital invention that revolutionized communication, information orginization, and the way that research could be done across all fields was the network of online card catalogs for libraries. This here could be seen as a large step forward in the ease of which humanities research and discovery was done, but is unclear if it is the _digitial humanities_ of today. The line between the humanities and the digital humanities is unclear. The use of computers to aid the humanities research did not mean a clear shift in the presentation of such research, just the way that it is done. One may describe this as digital humanities, but the computers just made discovering the artificats to research easier, but none of the analysis could be aided by the machine, just discovery of the data.
 
