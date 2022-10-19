@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 # Reading and reflection blog posts
 
-For this week's post, I will be discussing [_Technology is Taking Over English Departments_](https://newrepublic.com/article/117428/limits-digital-humanities-adam-kirsch) by Adam Kirsh. This article gives an analysis of other media discussing Digital Humanities, and the possible paradigm shift of digital humanities work and research. The article brings up a lot of very interesting points about the role, driving factors, and future of work that is considered digital humanities. I found the following two paragraphs very interesting, which brought up a lot of interesting points, and honestly leaves you with more questions than answers:
+For this week's post, I will be discussing [_Technology is Taking Over English Departments_](https://newrepublic.com/article/117428/limits-digital-humanities-adam-kirsch) by Adam Kirsh. Afterwards, I follow up on my analysis with a fun experiment using an AI to assist me with english text writing and code writing. The article gives an analysis of other media discussing Digital Humanities, and the possible paradigm shift of digital humanities work and research. The article brings up a lot of very interesting points about the role, driving factors, and future of work that is considered digital humanities. I found the following two paragraphs very interesting, which brought up a lot of interesting points, and honestly leaves you with more questions than answers:
 
 > If computers cannot think better than human beings, digital humanists are left with the argument that at least they can think faster—the John Henry argument. In the essay “Developing Things: Notes toward an Epistemology of Building in the Humanities,” Ramsay and Geoffrey Rockwell observe, “Reading Foucault and applying his theoretical framework can takes months or years of application. A web-based text analysis tool could apply its theoretical position in seconds.” Never mind that understanding that theoretical position will take more than seconds. Here are nicely encapsulated the two fundamental errors that theorizing about the revolutionary nature of digital humanities often commits. First, there is the idea that thinking humanistically is a matter of taking a framework of ideas and “applying” it to a text or a work of art. The second is the idea that applying ideas in this way leads to an external self-subsistent result, be it a theory or another book or a piece of driftwood with pictures on it.
 > 
@@ -20,11 +20,11 @@ Therefore, I agree with the author with their claim that the results driven natu
 
 ---
 
-The following is just a fun experiment.
+The following is just a fun experiment, with FASCINATING results. 
 
-Below this line, I will use an example of an AI trying to write it's own thoughts. Github Copilot is a code-assistant AI that processes a file, and attempts to predict what you will write next, from context and prompts. I will give it the prompt "In the future, I think AI will be able to ...", and lets see what it does. It was not designed to write in english, so I have also added a code example below the text.
+Below this line, I will use an example of an AI trying to write it's own thoughts. Github Copilot is a code-assistant AI that processes a file, and attempts to predict what you will write next, from context and prompts. I will give it the prompt "In the future, I think AI will be able to ...", and lets see what it does. It was not designed to write in english, so I have also added a code example below the text. 
 
-The prompt for the code is to parse through a book, and find all occurances of nouns.
+- The prompt for the code is to "Define a function to parse through a book, and find all occurances of nouns".
 
 --- 
 ### Essay example using Github Copilot
@@ -38,9 +38,11 @@ After giving the prompt,it choose to do this in python. I typed only 2 things:
 - I typed "def open" to encourage it to write a function to open the book
 - I typed "def main" to have it generate the main.
 
-On first run, I realized I needed to type `nltk.download()` to get the dependencies, rather than just installing with `pip`, but then the script was able to run.
+On first run, I realized I needed to type `nltk.download()` to get the dependencies, rather than just installing with `pip`, but then the script was able to run. It did not make a mistake, that is just an installation step.
 
-The script worked. Try it yourself, or view my juypyter notebook here:
+The script worked. Try it yourself, or view my juypyter notebook here: [github link](https://github.com/Ellis-Brown/CLS-161/blob/gh-pages/_posts/find_nouns.ipynb)
+
+Note: I had never even heard of `nltk` before, or any of these tools. I did not even open a web browser to get this result.
 ```python
 ## Define a function to parse through a book, and find all occurances of nouns.    
 
@@ -90,3 +92,11 @@ def main():
     # Print the nouns
     print(nouns)
 ```
+
+Note, the text file being parsed can be found here: [romeo.txt](https://github.com/Ellis-Brown/CLS-161/blob/gh-pages/_posts/romeo.txt)
+
+--- 
+
+Analysis:
+
+Copilot is amazing in assistance. However, both prompts were generated by me, and it can only be as experessive as I allow it to, with clear prompts, and context to work around. It is not very good at english text generation, but it is hugely impressive at code generation. 
