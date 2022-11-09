@@ -1,3 +1,8 @@
+---
+layout: page
+title: Entity tagging
+description: Entity tagging notebook for homework
+---
 ```python
 import sys
 !{sys.executable} -m spacy download en_core_web_sm
