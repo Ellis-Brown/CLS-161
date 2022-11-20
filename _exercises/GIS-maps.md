@@ -4,7 +4,7 @@ title: GIS Map Gibbon Chapters
 description: Following the guest lecture on GIS, here is my 3 layer GIS map
 ---
 
-View the page here: https://tuftsgis.maps.arcgis.com/apps/mapviewer/index.html?webmap=c783dba6fd704f0a92760beeb46b2914 
+View the page here: [https://tuftsgis.maps.arcgis.com/apps/mapviewer/index.html?webmap=c783dba6fd704f0a92760beeb46b2914](https://tuftsgis.maps.arcgis.com/apps/mapviewer/index.html?webmap=c783dba6fd704f0a92760beeb46b2914)
 
 The three layers of this map are:
 1. Gibbon Chapter 2, as a heat map
